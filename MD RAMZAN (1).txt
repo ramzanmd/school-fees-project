@@ -1,0 +1,240 @@
+﻿from tkinter import*
+t=Tk()
+t.geometry("1280x1100")
+t.configure(bg= '#00ff00')
+f1=Frame(t,bd=5,pady=10)
+f1.pack(side=TOP,expand=True,fill="both")
+stu=Label(f1,text="STUDENT DETAILS",font=("Verdana",30)).place(x=450,y=10)
+f2=Frame(t,bd=5,relief=SUNKEN,width=500,height=650)
+f2.pack(side=LEFT,expand=True,fill="both")
+f3=Frame(t,bd=5,width=150,height=100)
+f3.pack(side=RIGHT,expand=True,fill="both")
+#creating label
+name=Label(f2,text="Name",font=("Italic",15)).place(x=50,y=70)
+fee=Label(f2,text="Fees",font=("Italic",15)).place(x=50,y=130)
+ad=Label(f2,text="Admission No",font=("Italic",15)).place(x=50,y=180)
+           
+em=Label(f2,text="Email No",font=("Italic",15)).place(x=50,y=230)           
+bi=Label(f2,text="DOB",font=("Italic",15) ).place(x=50,y=280)
+mob=Label(f2,text="Mobile No",font=("Italic",15)).place(x=50,y=330)
+add=Label(f2,text="Address",font=("Italic",15)).place(x=50,y=380)
+gen=Label(f2,text="Gender",font=("Italic",15)).place(x=50,y=430)
+#creating Entry
+c1=Entry(f2,width=30,font=("Bold",15)).place(x=250,y=70)
+c2=Entry(f2,width=30,font=("Bold",15)).place(x=250,y=120)
+c3=Entry(f2,width=30,font=("Bold",15)).place(x=250,y=170)
+c4=Entry(f2,width=30,font=("Bold",15)).place(x=250,y=220)
+c5=Entry(f2,width=30,font=("Bold",15)).place(x=250,y=270)
+c6=Entry(f2,width=30,font=("Bold",15)).place(x=250,y=320)
+c7=Entry(f2,width=30,font=("Bold",15)).place(x=250,y=370)
+var=IntVar()
+c8=Radiobutton(f2,text="male",padx=5,variable=var,value=1,font=("Bold",15)).place(x=250,y=430)
+c8=Radiobutton(f2,text="female",padx=20,variable=var,value=2,font=("Bold",15)).place(x=350,y=430)
+
+
+
+
+
+val=""
+A=0
+operator=""
+def b1_isclicked():
+    global val
+    val=val+"1"
+    data.set(val)
+def b2_isclicked():
+    global val
+    val=val+"2"
+    data.set(val)
+def b3_isclicked():
+    global val
+    val=val+"3"
+    data.set(val)
+def b4_isclicked():
+    global val
+    val=val+"4"
+    data.set(val)
+def b5_isclicked():
+    global val
+    val=val+"5"
+    data.set(val)
+def b6_isclicked():
+    global val
+    val=val+"6"
+    data.set(val)
+def b7_isclicked():
+    global val
+    val=val+"7"
+    data.set(val)
+def b8_isclicked():
+    global val
+    val=val+"8"
+    data.set(val)
+def b9_isclicked():
+    global val
+    val=val+"9"
+    data.set(val)
+def b10_isclicked():
+    global val
+    val=val+"0"
+    data.set(val)
+def b_plus_isclicked():
+    global A
+    global operator
+    global val
+    A=int(val)
+    operator="+"
+    val=val+"+"
+    data.set(val)
+def b_sub_isclicked():
+    global A
+    global operator
+    global val
+    A=int(val)
+    operator="-"
+    val=val+"-"
+    data.set(val)
+
+def b_multi_isclicked():
+    global A
+    global operator
+    global val
+    A=int(val)
+    operator="x"
+    val=val+"x"
+    data.set(val)
+def b_div_isclicked():
+    global A
+    global operator
+    global val
+    A=int(val)
+    operator="/"
+    val=val+"/"
+    data.set(val)
+def c_isclicked():
+    global A
+    global operator
+    global val
+    val=""
+    A=0
+    operator=""
+    data.set(val)
+def result():
+    global A
+    global operator
+    global val
+    val2=val
+    if operator=="+":
+        x=int((val2.split("+")[1]))
+        c=A+x
+        data.set(c)
+        val=str(c)
+    elif operator=="-":
+        x=int((val2.split("-")[1]))
+        c=A-x
+        data.set(c)
+        val=str(c)
+    elif operator=="x":
+        x=int((val2.split("x")[1]))
+        c=A*x
+        data.set(c)
+        val=str(c)
+    elif operator=="/":
+        x=int((val2.split("/")[1]))
+        if x==0:
+            messagebox.showerror("error","invalid")
+            A=""
+            val=""
+            data.set(val)
+        else:
+            c=int(A/x)
+            data.set(c)
+            val=str(c)
+        
+
+   
+    
+        
+
+data=StringVar()
+lbl=Label(f3,text="Label",anchor=SE,bg="White",font=("Italic",20),textvariable=data)
+lbl.pack(expand=True,fill="both")
+btnrow1=Frame(f3)
+btnrow1.pack(expand=True,fill="both")
+btnrow2=Frame(f3)
+btnrow2.pack(expand=True,fill="both")
+
+btnrow3=Frame(f3)
+btnrow3.pack(expand=True,fill="both")
+btnrow4=Frame(f3)
+btnrow4.pack(expand=True,fill="both")
+
+b1=Button(btnrow1,text="1",font=("Italic",25),relief=GROOVE,command=b1_isclicked)
+b1.pack(side=LEFT,expand="True")
+
+b1=Button(btnrow1,text="2",font=("Italic",25),relief=GROOVE,command=b2_isclicked)
+b1.pack(side=LEFT,expand=True)
+b1=Button(btnrow1,text="3",font=("Italic",25),relief=GROOVE,command=b3_isclicked)
+b1.pack(side=LEFT,expand=True)
+b1=Button(btnrow1,text="+",font=("Italic",25),relief=GROOVE,command=b_plus_isclicked)
+b1.pack(side=LEFT,expand=True)
+
+
+
+
+
+
+
+
+
+b2=Button(btnrow2,text="4",font=("Italic",25),relief=GROOVE,command=b4_isclicked)
+b2.pack(side=LEFT,expand="True")
+
+b2=Button(btnrow2,text="5",font=("Italic",25),relief=GROOVE,command=b5_isclicked)
+b2.pack(side=LEFT,expand=True)
+b2=Button(btnrow2,text="6",font=("Italic",25),relief=GROOVE,command=b6_isclicked)
+b2.pack(side=LEFT,expand=True)
+b2=Button(btnrow2,text="-",font=("Italic",25),relief=GROOVE,command=b_sub_isclicked)
+b2.pack(side=LEFT,expand=True)
+
+
+
+
+b3=Button(btnrow3,text="7",font=("Italic",25),relief=GROOVE,command=b7_isclicked)
+b3.pack(side=LEFT,expand="True")
+
+b3=Button(btnrow3,text="8",font=("Italic",25),relief=GROOVE,command=b8_isclicked)
+b3.pack(side=LEFT,expand=True)
+b3=Button(btnrow3,text="9",font=("Italic",25),relief=GROOVE,command=b9_isclicked)
+b3.pack(side=LEFT,expand=True)
+b3=Button(btnrow3,text="x",font=("Italic",25),relief=GROOVE,command=b_multi_isclicked)
+b3.pack(side=LEFT,expand=True)
+
+
+
+b4=Button(btnrow4,text="0",font=("Italic",25),relief=GROOVE,command=b10_isclicked)
+b4.pack(side=LEFT,expand="True")
+
+b4=Button(btnrow4,text="C",font=("Italic",25),relief=GROOVE,command=c_isclicked)
+b4.pack(side=LEFT,expand=True)
+b4=Button(btnrow4,text="=",font=("Italic",25),relief=GROOVE,command=result)
+b4.pack(side=LEFT,expand=True)
+b4=Button(btnrow4,text="/",font=("Italic",25),relief=GROOVE,command=b_div_isclicked)
+b4.pack(side=LEFT,expand=True)
+
+
+
+
+
+
+
+
+
+
+t.mainloop()
+
+
+
+
+
+
